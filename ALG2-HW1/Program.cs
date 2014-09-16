@@ -22,7 +22,7 @@ namespace ALG2_HW1
             // Store N & K
             int n = Convert.ToInt32(nStr);
             int k = Convert.ToInt32(kStr);
-
+            
             Stopwatch s = new Stopwatch();
             s.Start();
             double nk1 = NOverK1(n, k);
@@ -42,7 +42,7 @@ namespace ALG2_HW1
             s.Start();
             double nk4 = NOverK4(n, k);
             s.Stop();
-            Console.WriteLine("Opdracht B.4 (" + n + "/" + k + ") = " + nk4 + " (" + s.Elapsed + "sec)");
+            Console.WriteLine("Opdracht B.4 (" + n + "/" + k + ") = " + nk4 + " (" + s.Elapsed + "sec)"); 
             Console.Read();
         }
 

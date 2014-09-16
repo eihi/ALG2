@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALG2", "ALG2\ALG2.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALG2-HW1", "ALG2-HW1\ALG2-HW1.csproj", "{58BB10C1-C2FB-4828-A01E-6FBCC3E0FB7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALG2-HW2", "ALG2-HW2\ALG2-HW2.csproj", "{77B1F4E7-712A-4354-A8E3-499C4B77584D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{58BB10C1-C2FB-4828-A01E-6FBCC3E0FB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58BB10C1-C2FB-4828-A01E-6FBCC3E0FB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58BB10C1-C2FB-4828-A01E-6FBCC3E0FB7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77B1F4E7-712A-4354-A8E3-499C4B77584D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B1F4E7-712A-4354-A8E3-499C4B77584D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B1F4E7-712A-4354-A8E3-499C4B77584D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B1F4E7-712A-4354-A8E3-499C4B77584D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
