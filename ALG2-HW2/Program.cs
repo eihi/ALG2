@@ -8,7 +8,7 @@ namespace ALG2_HW2
 {
     class SpelObject
     {
-        private const int DIMENSION = 2;
+        public const int DIMENSION = 2;
         public double[] Position { get; set; }
 
         public SpelObject()
@@ -19,7 +19,7 @@ namespace ALG2_HW2
 
     class Program
     {
-        private static Random rnd = new Random();
+        static int nr = 0;
         static void FillArray(SpelObject[] array, int index, double x, double y)
         {
             array[index] = new SpelObject();
@@ -29,86 +29,101 @@ namespace ALG2_HW2
 
         static void WriteArray(SpelObject[] array)
         {
-            foreach (SpelObject so in objectArray)
+            foreach (SpelObject so in array)
             {
-                Console.WriteLine(so.Position[0] + " - " + so.Position[1]);
+                Console.WriteLine("[" + so.Position[0] + ", " + so.Position[1] +  "]");
             }
-            Console.WriteLine("=====================================");
+            Console.WriteLine("\n");
         }
 
-        static SpelObject[] objectArray;
+        static SpelObject[] array;
 
         static void Main(string[] args)
         {
-            objectArray = new SpelObject[8];
+            array = new SpelObject[8];
 
-            FillArray(objectArray, 0, 900, 100);
-            FillArray(objectArray, 1, 100, 100);
-            FillArray(objectArray, 2, 950, 50);
-            FillArray(objectArray, 3, 50, 750);
-            FillArray(objectArray, 4, 110, 90);
-            FillArray(objectArray, 5, 60, 800);
-            FillArray(objectArray, 6, 40, 800);
-            FillArray(objectArray, 7, 700, 850);
+            FillArray(array, 0, 900, 100);
+            FillArray(array, 1, 100, 100);
+            FillArray(array, 2, 50, 750);
+            FillArray(array, 3, 110, 90);
+            FillArray(array, 4, 950, 50);
+            FillArray(array, 5, 60, 800);
+            FillArray(array, 6, 40, 800);
+            FillArray(array, 7, 700, 850);
 
-            WriteArray(objectArray);
+            WriteArray(array);
 
-            Partition(0, objectArray, 0, objectArray.Length - 1);
-            //Partition(1, objectArray, 0, objectArray.Length - 1);
+            QuickSort(nr, 0, array.Length - 1);
 
-            WriteArray(objectArray);
+            WriteArray(array);
 
             Console.ReadLine();
         }
 
-        static void QuickSort(int index, int first, int last)
+        private static double MedianOfThree(int index, int left, int right)
         {
+            int center = (left + right) / 2;
 
+            if (array[left].Position[index] > array[center].Position[index])
+                Swap(left, center);
+            if (array[left].Position[index] > array[right].Position[index])
+                Swap(left, right);
+            if (array[center].Position[index] > array[right].Position[index])
+                Swap( center, right );
 
+            Swap(center, right-1);
 
-            //if ((last - first) <= 0)
-            //{
-            //    return;
-            //}
-            //else
-            //{
-            //    double pivot = objectArray[last].Position[index];
-            //    int part = Partition(index, first, last);
-            //    QuickSort(index, first, part - 1);
-            //    QuickSort(index, part + 1, last);
-            //}
+            return array[right-1].Position[index];
         }
 
-        private static void Partition(int index, SpelObject[] array, int left, int right)
-        {
-            int i = left;
-            int j = right;
-            double pivot = array[(left + right) / 2].Position[index];
-
-            while (i <= j)
-            {
-                while (array[i].Position[index] < pivot)
-                    i++;
-                while (array[j].Position[index] > pivot)
-                    j--;
-                if (i <= j)
-                {
-                    Swap(array, i, j);
-                    i++;
-                    j--;
-                }
-            }
-            if (left < j)
-                Partition(index, array, left, j);
-            if (i < right)
-                Partition(index, array, i, right);
-        }
-
-        private static void Swap(SpelObject[] array, int i, int j)
+        private static void Swap(int i, int j)
         {
             SpelObject temp = array[i];
             array[i] = array[j];
             array[j] = temp;
+        }
+
+        private static void QuickSort(int index, int first, int last)
+        {
+            int size = last - first + 1;
+            if (size == 2)
+            {
+                if (array[first].Position[index] > array[last].Position[index])
+                    Swap(first, last);
+                return;
+            }
+            if (last - first <= 0) 
+                return;
+            else
+            {
+                double pivot = MedianOfThree(index, first, last);
+                int partition = Partition(index, first, last, pivot);
+
+                index++;
+                QuickSort(index % 2, first, partition);
+                QuickSort(index % 2, partition + 1, last);
+            }
+        }
+
+        private static int Partition(int index, int left, int right, double pivot)
+        {
+            int leftMark = left;
+            int rightMark = right - 1;
+
+            while (true)
+            {
+                while (array[++leftMark].Position[index] < pivot);
+                while (rightMark > 0 && array[--rightMark].Position[index] > pivot);
+
+                if (leftMark >= rightMark)
+                    break;
+                else
+                    Swap(leftMark, rightMark);
+            }
+
+            Swap(leftMark, right - 1);
+
+            return leftMark;
         }
     }
 }

@@ -1,0 +1,6 @@
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW3\bin\Debug\ALG2-HW3.exe.config
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW3\bin\Debug\ALG2-HW3.exe
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW3\bin\Debug\ALG2-HW3.pdb
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW3\obj\Debug\ALG2-HW3.csprojResolveAssemblyReference.cache
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW3\obj\Debug\ALG2-HW3.exe
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW3\obj\Debug\ALG2-HW3.pdb
