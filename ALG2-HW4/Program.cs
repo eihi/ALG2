@@ -9,7 +9,6 @@ namespace ALG2_HW4
     public abstract class Node
     {
         private Node ouder;
-        protected LinkedList<SpelObject> spelObjecten = new LinkedList<SpelObject>;
         public Node(Node ouder)
         {
             this.ouder = ouder;
@@ -19,7 +18,7 @@ namespace ALG2_HW4
 
         public abstract void SetBounds();
 
-        public abstract void Search(double x, double y);
+        public abstract LinkedList<SpelObject> Search(double x, double y, LinkedList<SpelObject> spelObjecten);
     }
 
     public class SpelObject
@@ -54,9 +53,11 @@ namespace ALG2_HW4
 
         public override void SetBounds() { }
 
-        public override void Search(double x, double y)
+        public override LinkedList<SpelObject> Search(double x, double y, LinkedList<SpelObject> spelObjecten)
         {
-            spelObjecten.AddLast(this.SpelObject);
+            if (x == SpelObject.Position[0] && y == SpelObject.Position[1])
+                spelObjecten.AddLast(this.SpelObject);
+            return spelObjecten;
         }
     }
 
@@ -95,21 +96,23 @@ namespace ALG2_HW4
 
                 this.upperArray[index] = upperRechts > upperLinks ? upperRechts : upperLinks;
                 this.lowerArray[index] = lowerRechts < lowerLinks ? lowerRechts : lowerLinks;
+                index++;
             }
         }
 
-        public override void Search(double x, double y)
+        public override LinkedList<SpelObject> Search(double x, double y, LinkedList<SpelObject> spelObjecten)
         {
             if (LinkerKind.lowerBound(0) <= x && LinkerKind.upperBound(0) >= x 
                 && LinkerKind.lowerBound(1) <= y && LinkerKind.upperBound(1) >= y)
             {
-                LinkerKind.Search(x, y);
+                spelObjecten = LinkerKind.Search(x, y, spelObjecten);
             }
             else if (RechterKind.lowerBound(0) <= x && RechterKind.upperBound(0) >= x 
                 && RechterKind.lowerBound(1) <= y && RechterKind.upperBound(1) >= y)
             {
-                RechterKind.Search(x, y);
+                spelObjecten = RechterKind.Search(x, y, spelObjecten);
             }
+            return spelObjecten;
         }
     }
 
@@ -137,6 +140,10 @@ namespace ALG2_HW4
             root.SetBounds();
 
             WriteArray(array);
+
+            LinkedList<SpelObject> list = new LinkedList<SpelObject>();
+
+            list = root.Search(100, 100, new LinkedList<SpelObject>());
 
             Console.ReadLine();
         }
