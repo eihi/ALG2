@@ -1,0 +1,5 @@
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW5\bin\Debug\ALG2-HW5.exe.config
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW5\bin\Debug\ALG2-HW5.exe
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW5\bin\Debug\ALG2-HW5.pdb
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW5\obj\Debug\ALG2-HW5.exe
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW5\obj\Debug\ALG2-HW5.pdb

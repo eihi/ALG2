@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALG2-HW3", "ALG2-HW3\ALG2-H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALG2-HW4", "ALG2-HW4\ALG2-HW4.csproj", "{570A4020-819D-4BED-BFDC-0186A1CF578D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALG2-HW5", "ALG2-HW5\ALG2-HW5.csproj", "{27AA1AD3-3097-43B9-8CDE-187103D79062}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{570A4020-819D-4BED-BFDC-0186A1CF578D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{570A4020-819D-4BED-BFDC-0186A1CF578D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{570A4020-819D-4BED-BFDC-0186A1CF578D}.Release|Win32.ActiveCfg = Release|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{27AA1AD3-3097-43B9-8CDE-187103D79062}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

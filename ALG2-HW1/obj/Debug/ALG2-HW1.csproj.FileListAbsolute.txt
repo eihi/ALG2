@@ -9,3 +9,4 @@ C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW1\obj\Debug\ALG2-HW1.exe
 C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW1\obj\Debug\ALG2-HW1.pdb
 C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW1\bin\Debug\ALG2-HW1.exe
 C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW1\bin\Debug\ALG2-HW1.pdb
+C:\Users\Niek Willems\Documents\GitHub\ALG2\ALG2-HW1\obj\Debug\ALG2-HW1.csprojResolveAssemblyReference.cache
