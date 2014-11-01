@@ -77,32 +77,41 @@ namespace ALG2_HW6
             AllNodes.ForEach(node => node.Visited = false);
         }
 
-        public void DepthFirstSearch(string name)
+        public Node DepthFirstSearch(string name)
         {
+            Node node = null;
+
             Stack stack = new Stack();
             stack.Push(this.Root);
             Root.Visited = true;
-            Console.WriteLine(Root);
+
             while (stack.Count != 0)
             {
                 Node n = (Node)stack.Peek();
+
+                if (n.Name == name)
+                {
+                    node = n;
+                    break;
+                }
+
                 Node child = GetUnvisitedChildNode(n);
                 if (child != null)
                 {
                     child.Visited = true;
-                    Console.WriteLine(child);
                     stack.Push(child);
                 }
                 else
-                {
                     stack.Pop();
-                }
             }
+
             ClearNodes();
+            return node;
         }
 
         public void Change(string name)
         {
+            Node node = DepthFirstSearch(name);
 
         }
 
