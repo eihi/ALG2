@@ -111,13 +111,23 @@ namespace ALG2_HW6
 
         public void Change(string name)
         {
-            Node node = DepthFirstSearch(name);
 
         }
 
-        public void Insert(string name)
+        public void Insert(string name, Node newNode, int w)
         {
+            lock (AllNodes)
+            {
+                Node node = DepthFirstSearch(name);
+                List<Edge> edges = node.Edges;
 
+                node.Edges.Clear();
+                node.AddEdge(newNode, w);
+                foreach (Edge e in edges)
+                {
+                    newNode.AddEdge(e.Child, e.Weigth);
+                }
+            }
         }
 
         public void Remove(string name)
