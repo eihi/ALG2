@@ -114,42 +114,56 @@ namespace ALG2_HW6
             DepthFirstSearch(key).Name = name;
         }
 
-        public void Insert(string key, string name)
+        public void Insert(string name, Node newNode, int w)
         {
-            
+            lock (AllNodes)
+            {
+                Node node = DepthFirstSearch(name);
+                List<Edge> edges = node.Edges;
+
+                node.Edges.Clear();
+                node.AddEdge(newNode, w);
+                foreach (Edge e in edges)
+                {
+                    newNode.AddEdge(e.Child, e.Weigth);
+                }
+            }
         }
 
         public void Remove(string name)
         {
-            Stack stack = new Stack();
-            stack.Push(this.Root);
-            Root.Visited = true;
-
-            while (stack.Count != 0)
+            lock (AllNodes)
             {
-                Node n = (Node)stack.Peek();
-                List<Node> toBeRemoved = new List<Node>();
-                foreach (Edge e in n.Edges)
+                Stack stack = new Stack();
+                stack.Push(this.Root);
+                Root.Visited = true;
+
+                while (stack.Count != 0)
                 {
-                    if (e.Child.Name == name)
+                    Node n = (Node)stack.Peek();
+                    List<Node> toBeRemoved = new List<Node>();
+                    foreach (Edge e in n.Edges)
                     {
-                        toBeRemoved.Add(e.Child);
+                        if (e.Child.Name == name)
+                        {
+                            toBeRemoved.Add(e.Child);
+                        }
                     }
-                }
-                foreach (Node foundnode in toBeRemoved)
-                    AllNodes.Remove(foundnode);
+                    foreach (Node foundnode in toBeRemoved)
+                        AllNodes.Remove(foundnode);
 
-                Node child = GetUnvisitedChildNode(n);
-                if (child != null)
-                {
-                    child.Visited = true;
-                    stack.Push(child);
+                    Node child = GetUnvisitedChildNode(n);
+                    if (child != null)
+                    {
+                        child.Visited = true;
+                        stack.Push(child);
+                    }
+                    else
+                        stack.Pop();
                 }
-                else
-                    stack.Pop();
+
+                ClearNodes();
             }
-
-            ClearNodes();
         }
 
         public int?[,] CreateAdjMatrix()
