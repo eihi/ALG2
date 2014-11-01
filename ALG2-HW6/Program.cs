@@ -111,7 +111,8 @@ namespace ALG2_HW6
 
         public void Change(string key, string name)
         {
-            DepthFirstSearch(key).Name = name;
+            lock (AllNodes)
+                DepthFirstSearch(key).Name = name;
         }
 
         public void Insert(string name, Node newNode, int w)
